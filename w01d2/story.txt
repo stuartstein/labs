@@ -1,0 +1,48 @@
+~p1
+You want to make scrambled eggs this morning.
+
+Do you...
+
+~p1:c1:p2
+1 — Use Gordon Ramsey's recipe?
+~p1:c2:p3
+2 - Whip up your own thing?
+~p1:c3:p4
+3 - Call your friend for a recipe?
+
+~p2
+Success! The eggs are super fluffy and delicious. You are full and ready
+for the day.
+
+What do you do next? Do you...
+
+~p2:c1:p5
+1 - Wash the dishes
+
+~p2:c2:p6
+2 - Watch TV
+
+~p3
+You are not hungry this morning, but your taste buds are crying for better.
+
+~p3:c1:p5
+1 - Wash the dishes
+
+~p3:c2:p6
+2 - Watch TV
+
+~p4
+You got tied up in a conversation with your friend arguing about the
+merits of your recipe vs Gordon's. As a result you spent $15 on a lame 
+breakfast at the café, because you had no time to cook.
+
+
+~p5
+Your mother would be proud! As you start washing, your fork falls
+into the sink. You go in after it and lose balance. You hit the button
+for the garbage disposal. Your hand is cut to shreds, and you die. Sorry!
+
+~p6
+You turn on your favorite show - Matlock - and start chewing on some 
+pretzels. In a freak accident, you choke on a pretzel and flail about
+as you imagine George W. Bush would have. You die. Sorry!

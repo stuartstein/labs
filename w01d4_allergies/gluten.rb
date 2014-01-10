@@ -17,6 +17,8 @@
  
 class Person
 
+	attr_reader :name, :allergies, :stomach
+
 	def initialize(name, allergies)
 		@name = name
 		@stomach = []
@@ -29,30 +31,31 @@ class Person
 		begin
 
 			foods.each do | f |
-				
+
 				# The person unwittingly eats the food!
 				@stomach.push(f) 
-
-				# if allergies is String, convert to array 
-				# it helps with the include statement!
-				allergy_arr = []
-				@allergies.is_a?(String) ? allergy_arr[0] = @allergies : allergy_arr = @allergies
-
-				if allergy_arr.include?(f)
-					
-					raise AllergyError.new(f)
-				end
-
+				raise AllergyError.new(f) if is_allergic?(f)
+			
 			end
 
 		rescue AllergyError => food 
 
 			puts "Sorry, #{@name} is allergic to #{food}"
 			vomit()
-			puts
-
+			
 		end
 	end
+
+	def is_allergic?(food)
+
+		# if allergies is String, convert to array 
+		# it helps with the include statement!
+		allergy_arr = []
+		@allergies.is_a?(String) ? allergy_arr[0] = @allergies : allergy_arr = @allergies
+
+		allergy_arr.include?(food)
+	end
+
 	def vomit()
 
 		unless @stomach.empty?
@@ -63,7 +66,7 @@ class Person
 				output << "#{@stomach.pop}, "
 			end
 			puts output.slice!(0..output.size - 3) 
-			
+			puts
 		
 		else
 			"#{name}'s stomach is empty"

@@ -20,35 +20,35 @@ def menu(message, shelter_name)
 	gets.chomp
 end
 	
-shelter = Shelter.new("Happi Tails", "123 Happi Blvd, San Francisco, CA")
+happi = Shelter.new("Happi Tails", "123 Happi Blvd, San Francisco, CA")
 message = ""
 looping = true
 
 while looping
-	choice = menu(message, shelter.name)
+	choice = menu(message, happi.name)
 	puts
 	case choice
 		when "1"
 			# Display the unadopted animals
-			if shelter.unadopted_animals.empty?
+			if happi.unadopted_animals.empty?
 				message = "Sorry, there are no animals available. Type '3' to add an animal."
 			else
-				message = "#{shelter.name}'s current animals:\n"
-				shelter.unadopted_animals.each { |a| message += "#{a.display_info}\n" }
+				message = "#{happi.name}'s current animals:\n"
+				happi.unadopted_animals.each { |a| message += "#{a.display_info}\n" }
 			end
 
 		when "2"
 			# Display all clients
-			if shelter.clients.empty?
+			if happi.clients.empty?
 				message = "The shelter currently has no clients. Type '4' to add a client."
 			else
-				message = "#{shelter.name}'s current clients:\n"
-				shelter.clients.each { |c| message += "#{c.display_info}\n" }
+				message = "#{happi.name}'s current clients:\n"
+				happi.clients.each { |c| message += "#{c.display_info}\n" }
 			end
 
 		when "3"
 			# Add a new animal in the shelter
-			new_animal = shelter.create_animal
+			new_animal = happi.create_animal
 			
 			# Give user feedback
 			message = new_animal.display_info
@@ -57,23 +57,23 @@ while looping
 
 		when "4"
 			# Add a new client
-			new_client = shelter.create_client
+			new_client = happi.create_client
 			
 			# Give user feedback
 			message = new_client.display_info
 			message += " has been added!"
 
 		when "5"
-			if shelter.animals.empty?
+			if happi.animals.empty?
 				message = "Sorry, there are no animals available. Type '3' to add an animal."
 			else
 				# select the client
 				puts "Let's start by selecting the client who will be adopting."
-				selected_client = shelter.get_client()
+				selected_client = happi.get_client()
 
 				# select the animal
 				puts "\nWhich animal will #{selected_client.name} be adopting?"
-				selected_animal = shelter.choose_from_names(shelter.animals, "animal", shelter.name)
+				selected_animal = happi.choose_from_names(happi.animals, "animal", happi.name)
 
 				# set animal owner to client, and add animal to client's pets
 				selected_animal.owner = selected_client
@@ -85,13 +85,14 @@ while looping
 		when "6"
 			# select the client
 			puts "Let's start by selecting the client admitting the animal"
-			selected_client = shelter.get_client()
+			selected_client = happi.get_client()
 			
 			# select the animal to admit
 			if selected_client.pets.empty?
-				selected_pet = shelter.add_animal_anyway
+				selected_pet = happi.add_animal_anyway
 			else
-				selected_pet = shelter.choose_from_names(selected_client.pets, "pet", selected_client.name)
+				puts "Which pet will #{selected_client.name} be adopting?\n"
+				selected_pet = happi.choose_from_names(selected_client.pets, "pet", selected_client.name)
 			end
 
 			# if pet was selected, set owner to nil, and remove pet from owner

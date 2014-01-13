@@ -48,18 +48,24 @@ def create_client
 
 end
 
+def list_names(list, label, owner)
+	
+	# print names in an array and return names array
+	names = list.map { | i | i.name }
+	puts "\n#{owner}'s current #{label}s: "
+	names.each { | n | puts n }
+	puts
+	names
+
+end
 
 def choose_from_names(list, label, owner)
 
-	# put names in an array and print them
-	names = list.map { | i | i.name }
+	names = list_names(list, label, owner)
 	looping = true
-	puts "\n#{owner}'s current #{label}s: "
-	names.each { | n | puts n }
-
 	# ask user to enter a name from the list
 	while looping	
-		puts "\nEnter a name from the list above: "
+		puts "Enter a name from the list above: "
 		choice = gets.chomp
 	 	names.include?(choice) ? looping = false : puts("\nThat name is not included.")
 	end
@@ -74,10 +80,10 @@ end
 def get_client
 
 	looping = true
-
 	# Ask whether client is new or existing
 	while looping
 		puts "Is the client new or existing?" 
+		list_names(@clients, "client", @name)
 		puts "Type ('n' for 'new' and 'e' for existing)"
 		choice = gets.chomp
 		(choice == 'n' || choice == 'e') ? looping = false : puts("Try again.")

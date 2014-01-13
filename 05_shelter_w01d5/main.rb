@@ -3,9 +3,11 @@ require './client'
 require './shelter'
 
 shelter = Shelter.new("Happi Tails", "123 Happi Blvd, San Francisco, CA")
-toys = ["ball", "laser pointer", "stuffed animal"]
-annie = Animal.new("Annie", 5, "f", "dog", toys)
-clint = Client.new("Clint", 2, 34)
 
-puts annie.age
-puts clint.age
+
+toys = ["ball", "laser pointer", "stuffed animal"]
+shelter.animals.push(Animal.new("Annie", 5, "f", "dog", toys))
+shelter.clients.push(Client.new("Clint", 2, 34))
+
+shelter.animals.each { |a| puts a.age }
+shelter.clients.each { |c| puts c.age }

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-labs
-====
-
 All my labs from GA
 =======
 # The SortedArray Lab
@@ -24,4 +20,3 @@ When you first run the spec, there will be a lot of errors and a lot of red.  Do
 `initialize` will use `add`, which will use `first_larger_index`.
 
 Submit your lab through the lab submission form.  Have fun!	
->>>>>>> 35e77f098940828db63d4f2991f7126a56538fe1

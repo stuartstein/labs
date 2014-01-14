@@ -5,8 +5,8 @@ class SortedArray
     
     @internal_arr = []
 
-    # Pass each element in input_arr to add method (if it isn't empty)
-    input_arr.each { | ele | add(ele) } unless input_arr.empty?
+    # Pass each element in input_arr to 'add' method (if it isn't empty)
+    input_arr.each { | ele | add(ele) } 
 
   end
 
@@ -27,10 +27,7 @@ class SortedArray
 
   def first_larger_index(target, start_ind=0, end_ind=@internal_arr.size)
     
-    if @internal_arr.empty?
-      return 0 
-
-    elsif start_ind >= end_ind
+    if start_ind >= end_ind
       return end_ind
 
     else

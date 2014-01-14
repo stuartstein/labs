@@ -12,10 +12,7 @@ class SortedArray
 
   def add(new_ele)
     
-    # find the right place to insert the new element
-    @internal_arr.empty? ? insert_ind = 0 : insert_ind = first_larger_index(new_ele)
-    
-    # call insert
+    insert_ind = first_larger_index(new_ele)
     @internal_arr.insert(insert_ind, new_ele) 
 
   end
@@ -30,18 +27,20 @@ class SortedArray
 
   def first_larger_index(target, start_ind=0, end_ind=@internal_arr.size)
     
-    if start_ind >= end_ind
+    if @internal_arr.empty?
+      return 0 
+
+    elsif start_ind >= end_ind
       return end_ind
 
     else
-
       mid_ind = (start_ind + end_ind) / 2
       if target > @internal_arr[ mid_ind ]
         return first_larger_index(target, mid_ind + 1, end_ind)
       else
         return first_larger_index(target, start_ind, mid_ind)
       end
-      
+
     end
   end
 

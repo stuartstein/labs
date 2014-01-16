@@ -80,20 +80,29 @@ class SortedArray
 
   end
   
-  def inject acc=nil, &block
+  def inject acc=nil, op=nil &block
 
     if acc.class == Symbol
       # if acc is a symbol, then that's the method we'll use to accumulate
-      op = acc
-      acc = @internal_arr.shift
-      self.each { | ele | acc = acc.send(op, ele)}
-      @internal_arr.unshift(acc)
+      if op == nil
+        sum = 0
+        inject{sum.send(acc, el)}
+      else
+        
+
+
+      # op = acc
+      # start_value = @internal_arr.shift
+      # acc = start_value
+      # self.each { | ele | acc = acc.send(op, ele)}
+      # @internal_arr.unshift(start_value)
 
     elsif acc == nil
       # if acc is nil, then set it to the first value in the arr
-      acc = @internal_arr.shift
+      start_value = @internal_arr.shift
+      acc = start_value
       self.each { |ele| acc = yield(acc, ele) }
-      @internal_arr.unshift(acc)
+      @internal_arr.unshift(start_value)
 
     else
       # Acc is set to the first value of @internal_arr

@@ -1,0 +1,27 @@
+require "sinatra"
+require "sinatra/reloader"
+
+MY_DB = []
+
+get "/" do
+	redirect "/animals"
+end
+
+get "/animals" do
+	@animals = MY_DB
+	erb :index
+end
+
+post "/animals" do
+	animal = params[:animal]
+	MY_DB << animal
+	id = MY_DB.length() - 1
+	redirect "/animals/#{id}"
+end
+
+# The SHOW METHOD/ROUTE for a animal
+get "/animals/:id" do
+	id = params[:id].to_i
+	@animals = MY_DB[id]
+	erb :show 
+end

@@ -1,0 +1,49 @@
+<title>Popcorn - Results for "<%= @search_str %>"</title>
+
+<!-- Top navbar -->
+<div class="navbar navbar-fixed-top navbar-inverse" id="popcorn" role="navigation">
+     <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand popcorn" href="/">Popcorn</a>
+        </div>
+        <form class="navbar-form navbar-right" role="form" action="/results" method="POST">
+            <div class="form-group">
+              <input type="text" name="movie" placeholder="Search any movie" class="form-control" id="nav-search" />
+            </div>
+        </form>
+   </div><!-- /.container -->
+</div><!-- /.navbar -->
+
+<div class="jumbotron">
+	<div class="container">
+		<div class="row results-header">
+			<h3>Results for "<%= @search_str %>"</h3>
+		</div>	
+		 
+		<% i = 4 %>
+		 <% @movies.each do |movie| %>
+			 <% if i % 4 == 0 %>
+			 	 <div class="row">
+			 <% end %>
+			 <% if i % 2 == 0 %>
+			 	<div class="col-md-6">
+				 	 <div class="row">
+			 <% end %>
+			    <div class="col-md-6 col-sm-6 result-col">
+			    	<a href ="http://www.imdb.com/title/<%= movie["imdbID"] %>">
+				    	<img src="<%= movie["Poster"] %>" class="result-img"/><br />
+				    	<p class="result-p"><%= movie["Title"] %> - <%=movie["Year"] %></p>
+			    	</a>
+			    </div>
+			 <% i += 1 %>
+			 <% if i % 2 == 0 %>
+				 	 </div>
+				 </div>
+			 <% end %>
+			 <% if i % 4 == 0 %>	 	
+			 	 </div>
+			 <% end %>
+		 <% end %>
+		</div>
+	</div>
+</div

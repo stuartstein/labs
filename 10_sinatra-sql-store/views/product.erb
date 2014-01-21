@@ -1,0 +1,24 @@
+<p> <img src="<%= @product["picture"] %>"></p>
+<p> Name: <%= @product["name"] %> </p>
+<p> Price: <%= @product["price"] %></p>
+<p> <%= @product["description"] %></p>
+
+
+<a href="<%=@product["id"]%>/edit"> Edit this product.</a>
+<form action="/products/<%= @product["id"] %>/destroy" method="post">
+    <input type="submit" name="" value="Delete this product">
+</form>
+<p>
+	Categories
+</p>
+<ul>
+  <% @categories.each do |category| %>
+    <li> <a href="/../categories/<%=category["id"]%>"> <%= category["name"]%></a></li>
+  <% end %>
+</ul>
+<p>
+	<a href="<%=@product["id"]%>/add-category/">Add to a category>></a>
+</p>
+<p>
+	<a href="<%=@product["id"]%>/remove-category/">Delete from a category>></a>
+</p>

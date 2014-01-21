@@ -1,0 +1,10 @@
+<form action="/products/<%=@product_id%>/remove-category" method="post">
+	<p>Which category would you like to remove?</p>
+	<form action="/categories" method="post">
+	<% @categories.each do |c| %>
+	   <input type="radio" name="category" value="<%=c["name"]%>"><%=c["name"]%><br>
+	<% end %>
+	<p>
+       <input type="submit" name="" value="Remove">
+  	</p>
+</form>

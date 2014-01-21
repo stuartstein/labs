@@ -1,0 +1,32 @@
+<form action="/products/<%=@product["id"]%>" method="post">
+  <p>
+    <label>Name:</label>
+    <input type="text" name="name" value="<%=@product["name"]%>">
+  </p>
+
+  <p>
+    <label>Price:</label>
+    <input type="number" name="price" value="<%=@product["id"]%>">
+  </p>
+
+  <p>
+    <label>Description:</label>
+    <textarea name="description"><%= @product["description"]%></textarea>
+  </p>
+
+  <p>
+    <label>Picture URL:</label>
+    <textarea name="picture"><%= @product["picture"]%></textarea>
+  </p>
+
+ <p>
+<!--  <label>Categories:</label><br>
+ <% @all_categories.each do |category| %>
+    <input type="checkbox" name="" value="<%= category["name"] %>" 
+    <% if @picked.include?(category["name"]) %><%= "checked" %><% end %>><%= category["name"] %><br>
+ <% end %> -->
+  <p>
+    <input type="submit" name="" value="Update">
+  </p>
+</form>
+

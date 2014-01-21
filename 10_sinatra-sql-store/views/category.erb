@@ -1,0 +1,11 @@
+<p> Category: <%= @category["name"] %> </p>
+<a href="<%=@category["id"]%>/edit"> Edit category</a>
+<form action="/categories/<%= @category["id"] %>/destroy" method="post">
+    <input type="submit" name="" value="Delete this category">
+</form>
+<p> Products: </p>
+<ul>
+  <% @products.each do |product| %>
+    <li><a href="/../products/<%= product["id"] %>"><%= product["name"]%></a></li>
+  <% end %>
+</ul>

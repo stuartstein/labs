@@ -171,7 +171,7 @@ end
 get '/products/:id/remove-category/' do
   c = PGconn.new(:host => "localhost", :dbname => dbname)
   @product_id = params[:id]
-  @categories = c.exec_params("SELECT categories.name, categories.id FROM categories INNER JOIN catalog ON catalog.category_id = categories.id INNER JOIN products ON catalog.product_id = products.id WHERE products.id = $1;", [params[:id]])
+  @categories = c.exec_params("SELECT categories.name, categories.id FROM catalog LEFT JOIN categories ON catalog.category_id = categories.id WHERE catalog.product_id = $1;", [params[:id]])
   c.close
   erb :remove_category
 end

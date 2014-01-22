@@ -1,0 +1,10 @@
+Welcome to the bog!
+<p><a href = "/creatures/new">Create creature</a></p>
+<% @creatures.each do |creature| %>
+	<div>
+		<h1><a href="/creatures/<%= creature.id %>"><%= creature.name %></a></h1><br />
+		<img src="<%= creature.picture %>"><br />
+		<h2><%= creature.description %><h2><br />
+		<br />
+	</div>
+<% end %>

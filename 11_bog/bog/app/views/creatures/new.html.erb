@@ -1,0 +1,11 @@
+<form action="/creatures" method="post">
+	<label>Name: </label>
+	<input type="text" name="creature[name]"><br />
+	<label>Picture URL: </label>
+	<input type="text" name="creature[picture]"><br />
+	<label>Description: </label>
+	<textarea name="creature[description]"></textarea>
+	<%= token_tag form_authenticity_token %>
+
+	<button>Make creature</button>
+</form>

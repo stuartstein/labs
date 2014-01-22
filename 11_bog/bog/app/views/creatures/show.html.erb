@@ -1,0 +1,12 @@
+<div>
+	<a href=".."><< Back</a><br>
+	<img src="<%= @creature.picture %>"><br />
+	Name: <%= @creature.name %><br />
+	Description: <%= @creature.description %><br />
+	<a href="<%= @creature.id %>/edit/">Edit >></a>
+	<form action="/creatures/<%= @creature.id %>/destroy" method="post">
+		<%= token_tag form_authenticity_token %>
+    	<input type="submit" name="" value="Delete this creature">
+    </form>
+</form>
+</div>

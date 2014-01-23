@@ -1,0 +1,8 @@
+<%= form_for :movie, url: movies_path do |f| %>
+	<%= label_tag(:title, "Title:") %><%= f.text_field :title %></br>
+	<%= label_tag(:year, "Year:") %><%= f.text_field :year %><br>
+	<%= label_tag(:imdbID, "imdbID:") %><%= f.text_field :imdbID %><br>
+	<%= label_tag(:plot, "Plot:") %><%= f.text_field :plot %><br>
+	<%= label_tag(:poster, "Poster URL:") %><%= f.text_field :poster %><br>
+	<%= f.submit "Submit" %>
+<% end %>

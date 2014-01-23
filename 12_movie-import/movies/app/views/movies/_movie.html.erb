@@ -1,0 +1,17 @@
+<div class="container">
+	<div "col-xs-12 col-sm-4 col-lg-3">
+		<%= image_tag(movie.poster) %>
+		<p><%= movie.title %> - <%= movie.year %></p>
+		<p><%= movie.plot %></p>
+		<%= form_tag(edit_movie_path(movie), method: :get) do %>
+  			<%= submit_tag("Edit") %>
+  		<% end %>
+  		<%= form_tag(movie_path(movie), method: :delete, data: {confirm: 'Are you sure?'}) do %>
+  			<%= submit_tag("Delete") %>
+		<% end %>
+		
+		
+	</div>
+</div>
+
+<br>

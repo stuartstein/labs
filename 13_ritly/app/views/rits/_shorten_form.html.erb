@@ -1,0 +1,17 @@
+<!-- check whether string is valid url/use Noah's code return error if not:
+1) exists
+2) has a "." in it
+3) the right characters-->
+
+<div class="container">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<%= form_for :rit, url: rits_path, class: 'form-horizontal', role: 'form' do |f| %>
+				 <div class="col-lg-11 col-sm-10 col-xs-9 no-pad">
+					<%= f.text_field :link, placeholder: "Paste your URL here", onclick:'this.select();', value: initial_text, class: 'form-control input-lg', id: 'shorten-field', tabindex: 1 %>
+				</div> 
+				<div class="col-lg-1 col-sm-2 col-xs-3 no-pad">
+					<%= submit_tag("Shrink", class: 'btn btn-default btn-danger', id: "shorten-button") %>
+				</div>
+		<% end %>
+	</nav>
+</div>

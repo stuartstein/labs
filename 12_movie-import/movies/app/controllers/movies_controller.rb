@@ -41,6 +41,22 @@ class MoviesController < ApplicationController
 	def import
 	end
 
+# 	def results
+# 		@search_str = params[:movie]
+# 		result = Typheous.get("http://www.omdbapi.com/", :params => )
+# 		@result = JSON.parse(result.body)['Search']
+# 		@result.each do |movie|
+# 			mov = ({title: movie['Title'], year: movie['Year'], imdbID: movie['IM']})
+# 			mov = Movie.create(mov)
+# 		end
+# 		@result
+# end
+
+
+		#1. Add gem to gemfile
+		#2. Bundle install
+		#3. Restart erver
+
 	private
 	  def movie_params
 	    params.require(:movie).permit(:title, :year, :imdbID, :plot, :poster)

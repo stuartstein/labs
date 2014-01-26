@@ -6,7 +6,7 @@
 		<%= form_tag(edit_movie_path(movie), method: :get) do %>
   			<%= submit_tag("Edit") %>
   		<% end %>
-  		<%= form_tag(movie_path(movie), method: :delete, data: {confirm: 'Are you sure?'}) do %>
+  		<%= form_tag(movie_path(movie), method: :delete, data: {confirm: 'Are you sure?'} do %>
   			<%= submit_tag("Delete") %>
 		<% end %>
 		

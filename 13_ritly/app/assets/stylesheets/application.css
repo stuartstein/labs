@@ -129,3 +129,23 @@
 	padding-bottom: 10px;
 	text-align: center;
 }
+
+#url-error {
+	padding-top: 60px;
+}
+
+.error-alert {
+	background-color: #f9f2f4;
+	color: #c7254e;
+	padding: 15px;
+}
+
+.alert-headline{
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+.alert-bullets {
+	margin-bottom: 0px;
+}
+

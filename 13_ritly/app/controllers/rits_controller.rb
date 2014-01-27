@@ -20,19 +20,28 @@ class RitsController < ApplicationController
 	end
 
 	def create
+
 	    rit_attributes = rit_link_param
 		rit_attributes[:code] = Rit.make_code
-		rit = Rit.create(rit_attributes)
-		redirect_to "/preview/#{rit.code}"
+		@rit = Rit.create(rit_attributes)
 
+		if @rit.errors.any?
+			flash[:notice] = @rit.message
+			@rits = Rit.last(5).reverse 
+			render :index
+		else
+			@rit.start_with_http
+			redirect_to "/preview/#{@rit.code}"
+		end
 	end
 
 	def update
 		rit_attributes = rit_params
-		rit = Rit.find(rit_attributes[:id])
-		rit.code = rit_attributes[:code]
-		rit.save
-		redirect_to "/preview/#{rit.code}"
+		@rit = Rit.find(rit_attributes[:id])
+		@rit.code = rit_attributes[:code]
+		@rit.save
+
+		redirect_to (@rit.errors.any? ? :back : "/preview/#{rit.code}")
 	end
 
 

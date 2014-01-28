@@ -1,0 +1,2 @@
+[1m[37m      invoke[0m  active_record
+[1m[32m      create[0m    db/migrate/20140124054806_add_default_to_visits.rb

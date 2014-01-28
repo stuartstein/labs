@@ -1,0 +1,23 @@
+<div class="recent-rits">
+	<h3 class="table-headline"><%= headline %></h3>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>URL</th>
+				<th>Short link</th>
+				<th>Visits</th>
+				<th>Created</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @rits.each do |r| %>
+			<tr>
+				<td><%= r.link.truncate(40) %></td>
+				<td><%=link_to "http://localhost:3000/go/#{r.code}", "http://localhost:3000/preview/#{r.code}" %></td>
+				<td><%= r.visits %></td>
+				<td><%= r.created_at.to_formatted_s(:short) %></td> 
+			</tr>	
+		<% end %>
+		</tbody>
+	</table>
+</div>

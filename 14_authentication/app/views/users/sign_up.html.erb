@@ -1,0 +1,10 @@
+<div class="container">
+	<h1>Create your Ritly account</h1>
+	<%= form_for @user do |f| %>
+		<%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+		<%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+		<%= f.text_field :password, placeholder: "Password", class: "form-control" %>
+		<%= f.text_field :password_confirmation, placeholder: "Confirm your password", class: "form-control" %>
+		<%= f.submit("Do it!", class: "btn btn-primary btn-lg") %>
+	<% end %>
+</div>

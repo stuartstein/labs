@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: rits
+#
+#  id         :integer          not null, primary key
+#  code       :string(25)
+#  link       :string(255)
+#  visits     :integer          default(0)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  link: MyString
+  visits: 1
+
+two:
+  code: MyString
+  link: MyString
+  visits: 1

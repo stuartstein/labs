@@ -1,0 +1,12 @@
+<div class="row">
+	<h1>Come on in!</h1>
+	<div class="span6 offset3">
+		<%= form_for :session, url: sessions_path do |f| %>
+			<%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+			<%= f.text_field :password, placeholder: "Password", class: "form-control" %>
+			<%= f.submit('Log me in', class: "btn btn-primary btn-large")
+		<% end %> 
+		<p>New to Ritly? <%= link_to "Create a new account now!", signup_path %></p>
+	</div>
+</div>
+

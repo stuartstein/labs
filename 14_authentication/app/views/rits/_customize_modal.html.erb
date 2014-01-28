@@ -1,0 +1,42 @@
+<!-- check whether string is valid: 
+  1) (A-Z, a-z, 0-9, “-” and “_”. “=”) 
+  2) unique
+  3) less than 25 characters
+  4) exists
+Return error if not --> 
+
+<div class="modal fade" id="myModal">
+  <%= form_for :rit, :url => {:action => "update"}, class: 'form-horizontal', role: 'form' do |f| %>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Customize</h4>
+      </div>
+      <div class="modal-body">
+            <p class="domain-url">http://localhost:3000/go/</p>
+            <%= f.text_field :code, placeholder: "Paste your URL here", onclick:'this.select();', value: @rit.code, class: 'form-control input-lg', id: "custom-box", tabindex: 1, size: 25 %>
+            <%= f.hidden_field :id, value: @rit.id %>
+            <br>
+            <br>
+            <% if !@rit.nil? && @rit.errors.any? %>
+              <div id="code-error" class="error-alert">
+                <h2 class="alert-headline">Woops! <%= pluralize(@rit.errors.count, "error") %>:</h2>
+             
+                <ul class="alert-bullets">
+                <% @rit.errors[:code].each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+       
+      </div>    
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+   <% end %>
+</div><!-- /.modal -->

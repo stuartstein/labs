@@ -1,0 +1,43 @@
+<%= render partial: "shorten_form", locals: {initial_text: @rit.link} %>
+<h1 class="logo preview-logo"><a class="home-link" href="/">Ritly<br>
+:)</a></h1>
+
+<div class="container">
+	<div class="row result-row">
+		<div class="col-md-2 col-xs-2">
+			<p class="side">Shrunk link</p>
+		</div>
+		<div class="col-md-6 col-xs-10">
+			<%= text_field_tag('short-box', "http://localhost:3000/go/#{@rit.code}", onclick: "this.select();", class: "form-control input-lg", id: "short-box") %>
+			<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+  				Edit this URL
+			</button>
+			
+			<%= render 'customize_modal' %>
+		</div>
+	</div>
+	<div class="row result-row">
+		<div class="col-md-2 col-xs-2">
+			<p class="side">Visits</p>
+		</div>
+		<div class="col-md-6 col-xs-10">
+		 	<p class="visits"><%= @rit.visits %></p>
+		</div>	
+	</div>
+	<div class="row result-row">
+		<div class="col-md-2 col-xs-2">
+			<p class="side">URL</p>
+		</div>
+		<div class="col-md-6 col-xs-10">
+		 	<p class="visits"><%= @rit.link %></p>
+		</div>	
+	</div>
+	<div class="row result-row">
+		<div class="col-md-2 col-xs-2">
+			<p class="side">Preview</p>
+		</div>
+		<div class="col-md-6 col-xs-10 side-body">
+			<iframe src="<%= @rit.link %>" scrolling="no" id="peek">
+		</div>
+	</div>
+</div>

@@ -2,33 +2,31 @@ class UsersController < ApplicationController
   
   def new
   	@user = User.new()
+  	render :sign_up
   end
-
-  def show
-
-  	@user = User.find(params[:id])
-
-  end
-
+  
   def create
-  	
-  	@user = User.new(get_account_params[:user])
+  	@user = User.new(user_params)
 
   	if @user.save
-  		create_session @user
-  		redirect_to "profile/#{@user.id}"
+  		#sign_in @user
+  		redirect_to @user
   	else
-  		render :new
+  		render :sign_up
   	end
 
+  end
+  def show
+  	@user = User.find(params[:id])
+  	render :profile
   end
 
   def update
   end
 
   private
-  def get_account_params
-  	require(:user).permit(:name, :email, :password)
+  def user_params
+  	params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
 end

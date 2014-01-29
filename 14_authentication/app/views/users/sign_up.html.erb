@@ -1,10 +1,13 @@
 <div class="container">
 	<h1>Create your Ritly account</h1>
+	<div class="row">
 	<%= form_for @user do |f| %>
+		<%= render partial: 'errors', locals: { ele: @user } %>
 		<%= f.text_field :name, placeholder: "Name", class: "form-control" %>
 		<%= f.text_field :email, placeholder: "Email", class: "form-control" %>
-		<%= f.text_field :password, placeholder: "Password", class: "form-control" %>
-		<%= f.text_field :password_confirmation, placeholder: "Confirm your password", class: "form-control" %>
-		<%= f.submit("Do it!", class: "btn btn-primary btn-lg") %>
+		<%= f.text_field :password, type: "password", placeholder: "Password", class: "form-control" %>
+		<%= f.text_field :password_confirmation, type: "password", placeholder: "Confirm your password", class: "form-control" %>
+		<%= f.submit("Sign up!", class: "btn btn-primary btn-lg") %>
 	<% end %>
+	</div>
 </div>

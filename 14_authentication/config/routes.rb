@@ -4,7 +4,7 @@ Ritly::Application.routes.draw do
   get "sessions/new"
   get "sessions/destroy"
   get "/sign_up", to: 'users#new'
-  get '/profile/:id', to: 'users#show'
+  get "/users/:id", to: 'users#show'
 
   root to: 'rits#index'
   

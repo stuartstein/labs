@@ -1,0 +1,6 @@
+<div class="col-6 col-sm-6 col-lg-4 thumbs">
+    <a href="/products/<%= product.id %>">
+	    <%= image_tag(product.picture, width: '200') %>
+	    <h4><%= "#{product.name} ($#{product.price.round(0)})" %><h4>
+	</a>
+</div>

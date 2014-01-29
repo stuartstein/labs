@@ -1,0 +1,13 @@
+<%=form_for @product do |f| %>
+	<%= f.text_field :name, placeholder: 'Product name', class: "form-control"%><br>
+	<%= f.text_field :price, placeholder: 'Price ($)', class: "form-control" %><br>
+	<%= f.text_area :description, placeholder: 'Description', class: "form-control" %><br>
+	<%= f.text_field :picture, placeholder: 'Picture URL (http://)', class: "form-control" %><br>
+	
+	Categories:<br>
+	<% @categories.each do |c| %>
+	    <%= check_box_tag 'cat_ids[]', c.id, (checked = true if @product.categories.pluck(:id).include?(c.id)) %>
+	    <%= label_tag c.name %><br>
+	<% end %>
+<%= f.submit(btn_text, class: "btn btn-large btn-primary") %>
+<% end %>

@@ -1,5 +1,5 @@
 Store::Application.routes.draw do
   resources :categories, :products
 
-  root to: 'products#index'
+  root to: 'categories#index'
 end

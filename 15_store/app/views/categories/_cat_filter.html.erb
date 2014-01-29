@@ -1,0 +1,6 @@
+<div class="list-group">
+    <a href="/categories/" class="list-group-item <% if @selected.name == "All" %>active<% end %>">All</a>
+        <% @categories.each do |cat| %>
+            <a href="/categories/<%= cat.id %>" class="list-group-item <% if @selected.name == cat.name %>active<% end %>"><%= cat.name %></a>
+        <% end %>
+</div>

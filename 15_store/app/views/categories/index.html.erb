@@ -1,0 +1,11 @@
+<div class="row nav-adjust">
+	<%= render 'cat_bar' %>
+	<div class="col-xs-6 col-sm-3" id="sidebar" role="navigation">
+		<%= render 'cat_filter' %>
+	</div>
+	<div class="col-xs-12 col-sm-9">
+	    <div>
+	    	<%= render @products, locals: {cat_name: @selected.name} %>
+		</div>
+	</div>
+</div>

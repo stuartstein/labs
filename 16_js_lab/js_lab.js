@@ -35,8 +35,14 @@ var Iterators = (function() {
       // function -- for example add and perform
       // the action on each successive element
       var answer = base
-      Iterators.each(arr, function (value){answer = action( answer, value)} ) 
-      return answer
+      Iterators.each(arr, function (value){
+        if(answer === null){
+          answer = value;
+        } else {
+          answer = action( answer, value);
+        }
+      } ); 
+      return answer;
     }
   };
 })();

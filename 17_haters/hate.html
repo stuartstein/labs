@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<head>
+
+	<title>Haters gonna hate</title>
+	<style>
+		#picture {
+			position: absolute;
+			left: 0px;
+		}
+
+		.flip {
+	        -moz-transform: scaleX(-1);
+	        -o-transform: scaleX(-1);
+	        -webkit-transform: scaleX(-1);
+	        transform: scaleX(-1);
+	        filter: FlipH;
+	        -ms-filter: "FlipH";
+		}
+	</style>
+
+	<script>
+		window.onload = function() {
+			var wid = document.body.clientWidth;
+			var pic = document.getElementById('picture');
+			var i = 1;
+			var moveRight = true;
+			
+			var looping = function(ele, wid){
+				ele.style.left = i + "px";
+
+				if(moveRight === true){
+					i += 3;
+				}
+				else {
+					i -= 3;
+				}
+
+				if(i >= wid - ele.width){
+					moveRight = false;
+					pic.className = "flip";
+				}	
+				else if(i <= 0){
+					moveRight = true;
+					pic.className = "";
+				}
+
+			}
+			
+			setInterval(function(i, moveRight){looping(pic, wid);}, 1);
+
+		}
+	</script>
+</head>
+
+<body>
+
+	<img id="picture" src="https://a248.e.akamai.net/camo.github.com/56a9cd8b7e9ebbdcc75dc7baf56986a08650f50d/687474703a2f2f74686573656172657468696e67732e636f6d2f776f726b2f686174657273676f6e6e61686174652f696d672f686174657273676f6e6e61686174652d30312e676966" />
+
+</body>
+</html>
